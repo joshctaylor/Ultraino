@@ -852,6 +852,7 @@ public final class MainForm extends javax.swing.JFrame {
         });
         jMenu2.add(camViewMenu);
 
+        resetCamMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
         resetCamMenu.setText("reset");
         resetCamMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
