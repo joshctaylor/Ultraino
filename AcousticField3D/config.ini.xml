@@ -19,7 +19,7 @@
    <string>frameX</string>
    <void method="set">
     <object idref="Config0"/>
-    <int>74</int>
+    <int>122</int>
    </void>
   </void>
   <void class="acousticfield3d.Config" method="getField">
@@ -66,7 +66,7 @@
   </void>
   <void method="put">
    <string>.zText</string>
-   <string>0</string>
+   <string>-0.0023</string>
   </void>
   <void method="put">
    <string>.animPanel.durationText</string>
@@ -102,7 +102,7 @@
   </void>
   <void method="put">
    <string>.syText</string>
-   <string>0</string>
+   <string>0.0500</string>
   </void>
   <void method="put">
    <string>.pointsPanel.gridHText</string>
@@ -118,7 +118,7 @@
   </void>
   <void method="put">
    <string>.xText</string>
-   <string>0</string>
+   <string>0.0000</string>
   </void>
   <void method="put">
    <string>.trapsPanel.yForceText</string>
@@ -338,7 +338,7 @@
   </void>
   <void method="put">
    <string>.ryText</string>
-   <string>0</string>
+   <string>0.0000</string>
   </void>
   <void method="put">
    <string>.movePanel.autoSendCheck</string>
@@ -374,7 +374,7 @@
   </void>
   <void method="put">
    <string>.rzText</string>
-   <string>0</string>
+   <string>0.0000</string>
   </void>
   <void method="put">
    <string>.animPanel.waitText</string>
@@ -418,11 +418,11 @@
   </void>
   <void method="put">
    <string>.yText</string>
-   <string>0</string>
+   <string>0.0230</string>
   </void>
   <void method="put">
    <string>.szText</string>
-   <string>0</string>
+   <string>0.0500</string>
   </void>
   <void method="put">
    <string>.holoPatternsForm.onlySelectionCheck</string>
@@ -434,7 +434,7 @@
   </void>
   <void method="put">
    <string>.rtSlicePanel.colAmpMaxText</string>
-   <string>1500</string>
+   <string>500</string>
   </void>
   <void method="put">
    <string>.miscPanel.ampDiscText</string>
@@ -482,7 +482,7 @@
   </void>
   <void method="put">
    <string>.sxText</string>
-   <string>0</string>
+   <string>0.0500</string>
   </void>
   <void method="put">
    <string>.trapsPanel.pressureAText</string>
@@ -586,7 +586,7 @@
   </void>
   <void method="put">
    <string>.rxText</string>
-   <string>0</string>
+   <string>0.0000</string>
   </void>
   <void method="put">
    <string>.addTransducersForm.radialCheck</string>
