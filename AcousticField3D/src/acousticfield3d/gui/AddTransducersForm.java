@@ -11,6 +11,7 @@ import acousticfield3d.math.Quaternion;
 import acousticfield3d.math.Transform;
 import acousticfield3d.math.Vector3f;
 import acousticfield3d.scene.Entity;
+import acousticfield3d.scene.MeshEntity;
 import acousticfield3d.scene.Scene;
 import acousticfield3d.simulation.Simulation;
 import acousticfield3d.simulation.Transducer;
@@ -52,6 +53,12 @@ public class AddTransducersForm extends javax.swing.JFrame {
     private void initComponents() {
 
         arrangementGroup = new javax.swing.ButtonGroup();
+        spaceText1 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        ringAngleText1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        heightText1 = new javax.swing.JTextField();
         spaceText = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -79,6 +86,36 @@ public class AddTransducersForm extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         presetsCombo = new javax.swing.JComboBox();
         presetButton = new javax.swing.JButton();
+        ringCheck = new javax.swing.JRadioButton();
+        jLabel10 = new javax.swing.JLabel();
+        ringAngleText = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        heightText = new javax.swing.JTextField();
+        halfWaveLengthText = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+
+        spaceText1.setText("0.01");
+
+        jLabel12.setText("Separation / circle diameter:");
+
+        jLabel14.setText("Ring - angle to surface (deg):");
+
+        ringAngleText1.setText("45");
+        ringAngleText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ringAngleText1ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Distance above surface (mm):");
+
+        heightText1.setText("0");
+        heightText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heightText1ActionPerformed(evt);
+            }
+        });
 
         setTitle("Add Trasnducers");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -87,9 +124,9 @@ public class AddTransducersForm extends javax.swing.JFrame {
             }
         });
 
-        spaceText.setText("0.01");
+        spaceText.setText("100");
 
-        jLabel5.setText("Separation:");
+        jLabel5.setText("Separation / circle diameter (mm) :");
 
         jLabel1.setText("Columns:");
 
@@ -100,11 +137,12 @@ public class AddTransducersForm extends javax.swing.JFrame {
             }
         });
 
-        colSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        colSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        colSpinner.setValue(8);
 
         jLabel2.setText("Rows:");
 
-        rowSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        rowSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
         jLabel3.setText("Position:");
 
@@ -127,6 +165,11 @@ public class AddTransducersForm extends javax.swing.JFrame {
         jLabel9.setText("Freq:");
 
         freqText.setText("40000");
+        freqText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                freqTextActionPerformed(evt);
+            }
+        });
 
         arrangementGroup.add(gridCheck);
         gridCheck.setSelected(true);
@@ -157,49 +200,82 @@ public class AddTransducersForm extends javax.swing.JFrame {
             }
         });
 
+        arrangementGroup.add(ringCheck);
+        ringCheck.setText("ring");
+
+        jLabel10.setText("For ring, use columns for number in ring - rows is not used");
+
+        ringAngleText.setText("45");
+        ringAngleText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ringAngleTextActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Ring - angle to surface, α (deg):");
+
+        jLabel15.setText("Distance above surface, z1 (mm):");
+
+        heightText.setText("0");
+        heightText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heightTextActionPerformed(evt);
+            }
+        });
+
+        halfWaveLengthText.setText("9");
+        halfWaveLengthText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                halfWaveLengthTextActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("number of half wavelengths λ/2 :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(posText)
+                    .addComponent(rotText)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(freqText, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(powerText))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sizeText))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(presetsCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(presetButton))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(wText, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(posText)
-                            .addComponent(rotText)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(freqText, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(powerText))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sizeText))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(okButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(recenterSimCheck))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(presetsCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(presetButton))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(wText, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -215,12 +291,28 @@ public class AddTransducersForm extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(radialCheck)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(circleCheck))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addComponent(circleCheck)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spaceText, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 31, Short.MAX_VALUE)))
+                                .addComponent(ringCheck))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel17)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(halfWaveLengthText, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel15)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(heightText, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel13)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ringAngleText, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(spaceText, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 100, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -237,8 +329,27 @@ public class AddTransducersForm extends javax.swing.JFrame {
                     .addComponent(gridCheck)
                     .addComponent(hexCheck)
                     .addComponent(radialCheck)
-                    .addComponent(circleCheck))
-                .addGap(18, 18, 18)
+                    .addComponent(circleCheck)
+                    .addComponent(ringCheck))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(spaceText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(ringAngleText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(heightText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(halfWaveLengthText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(posText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -260,15 +371,12 @@ public class AddTransducersForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(sizeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(spaceText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(presetsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(presetButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(okButton)
                     .addComponent(recenterSimCheck))
@@ -453,6 +561,8 @@ public class AddTransducersForm extends javax.swing.JFrame {
             gridOrHexArrangement();
         }else if( radialCheck.isSelected() ){
             radialArrangement();
+        }else if( ringCheck.isSelected() ){
+            ringArrangement();    
         }else if (circleCheck.isSelected()){
             simpleCircleArrangement();
         }
@@ -488,6 +598,63 @@ public class AddTransducersForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_presetButtonActionPerformed
 
+    private void ringAngleTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ringAngleTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ringAngleTextActionPerformed
+
+    private void ringAngleText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ringAngleText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ringAngleText1ActionPerformed
+
+    private void heightTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heightTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_heightTextActionPerformed
+
+    private void heightText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heightText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_heightText1ActionPerformed
+
+    private void halfWaveLengthTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfWaveLengthTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_halfWaveLengthTextActionPerformed
+
+    private void freqTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_freqTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_freqTextActionPerformed
+
+    
+    private void ringArrangement() throws NumberFormatException {
+        final float soundSpeed = 331.5f;  // speed of sound at 20 deg sea level (m/s)
+        final int nPerCircle = (Integer)colSpinner.getValue(); // number of transducers in ring
+        final float freq = Float.parseFloat( freqText.getText() );
+        final float wavelength = freq / soundSpeed; // wavelength of soundwave
+        final float zAngle = Float.parseFloat( ringAngleText.getText() ) * (M.PI / 180.0f); // angle to surface
+
+        final float nHalfWave = Float.parseFloat( halfWaveLengthText.getText() ); 
+        final float h = (nHalfWave * (wavelength/2)); // distance from source to surface
+        final float ringRadius = Float.parseFloat( spaceText.getText() ) / (2*1000.0f); // diameter for ring
+        // final float yPos  = h * M.sin(zAngle);  
+        
+        
+        final float yPos = Float.parseFloat( heightText.getText() ) / 1000.0f; // distance above surface assuming centre
+                   
+        final float angle = M.TWO_PI / nPerCircle; // polygon angle for ring. From ring centre
+        
+        for (int c = 0; c < nPerCircle; ++c){
+            
+            final float cAngle = angle * c;  // angle between first transducer and transducer cc
+            Quaternion q = new Quaternion().fromAngles(0, -cAngle, zAngle+M.PI/2);            
+            Transducer t = createTransducer();
+
+            t.getTransform().setTranslation(M.cos(cAngle) * ringRadius, yPos , M.sin(cAngle) * ringRadius );
+            t.getTransform().getRotation().set( q );
+
+            addTransducer(t);
+        }
+        
+    }
+    
+    
     private void radialArrangement() throws NumberFormatException {
         final int nPerCircle = (Integer)colSpinner.getValue();
         final int nPerRow = (Integer)rowSpinner.getValue();
@@ -635,9 +802,19 @@ public class AddTransducersForm extends javax.swing.JFrame {
     private javax.swing.JSpinner colSpinner;
     private javax.swing.JTextField freqText;
     private javax.swing.JRadioButton gridCheck;
+    private javax.swing.JTextField halfWaveLengthText;
+    private javax.swing.JTextField heightText;
+    private javax.swing.JTextField heightText1;
     private javax.swing.JRadioButton hexCheck;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -653,10 +830,14 @@ public class AddTransducersForm extends javax.swing.JFrame {
     private javax.swing.JComboBox presetsCombo;
     private javax.swing.JRadioButton radialCheck;
     private javax.swing.JCheckBox recenterSimCheck;
+    private javax.swing.JTextField ringAngleText;
+    private javax.swing.JTextField ringAngleText1;
+    private javax.swing.JRadioButton ringCheck;
     private javax.swing.JTextField rotText;
     private javax.swing.JSpinner rowSpinner;
     private javax.swing.JTextField sizeText;
     private javax.swing.JTextField spaceText;
+    private javax.swing.JTextField spaceText1;
     private javax.swing.JTextField wText;
     // End of variables declaration//GEN-END:variables
 

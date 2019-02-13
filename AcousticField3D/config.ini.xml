@@ -9,17 +9,10 @@
    </void>
   </void>
   <void class="acousticfield3d.Config" method="getField">
-   <string>lastSimFile</string>
-   <void method="set">
-    <object idref="Config0"/>
-    <string>/Users/bob/repos/acousticPrinter/octagon.xml.gz</string>
-   </void>
-  </void>
-  <void class="acousticfield3d.Config" method="getField">
    <string>frameX</string>
    <void method="set">
     <object idref="Config0"/>
-    <int>122</int>
+    <int>12</int>
    </void>
   </void>
   <void class="acousticfield3d.Config" method="getField">
@@ -40,7 +33,7 @@
    <string>frameHeigh</string>
    <void method="set">
     <object idref="Config0"/>
-    <int>877</int>
+    <int>874</int>
    </void>
   </void>
  </object>
@@ -66,7 +59,7 @@
   </void>
   <void method="put">
    <string>.zText</string>
-   <string>-0.0023</string>
+   <string>0.0354</string>
   </void>
   <void method="put">
    <string>.animPanel.durationText</string>
@@ -102,7 +95,7 @@
   </void>
   <void method="put">
    <string>.syText</string>
-   <string>0.0500</string>
+   <string>0.0030</string>
   </void>
   <void method="put">
    <string>.pointsPanel.gridHText</string>
@@ -118,7 +111,7 @@
   </void>
   <void method="put">
    <string>.xText</string>
-   <string>0.0000</string>
+   <string>-0.0354</string>
   </void>
   <void method="put">
    <string>.trapsPanel.yForceText</string>
@@ -126,7 +119,7 @@
   </void>
   <void method="put">
    <string>.transducersPanel.wText</string>
-   <string>0</string>
+   <string>0.0090</string>
   </void>
   <void method="put">
    <string>.animPanel.pingpongWrap</string>
@@ -134,7 +127,7 @@
   </void>
   <void method="put">
    <string>.transducersPanel.ampText</string>
-   <string>0</string>
+   <string>1.0000</string>
   </void>
   <void method="put">
    <string>.algForm.reportCheck</string>
@@ -157,12 +150,20 @@
    <string>0</string>
   </void>
   <void method="put">
+   <string>.addTransducersForm.heightText</string>
+   <string>76.5</string>
+  </void>
+  <void method="put">
    <string>.miscPanel.phaseDiscText</string>
    <string>10</string>
   </void>
   <void method="put">
    <string>.algForm.stepsText</string>
    <string>10</string>
+  </void>
+  <void method="put">
+   <string>.addTransducersForm.ringAngleText1</string>
+   <string>45</string>
   </void>
   <void method="put">
    <string>.holoPatternsForm.varText</string>
@@ -194,7 +195,7 @@
   </void>
   <void method="put">
    <string>.transducersPanel.phaseText</string>
-   <string>0</string>
+   <string>0.0000</string>
   </void>
   <void method="put">
    <string>.algForm.resurePreCheck</string>
@@ -229,6 +230,10 @@
    <string>10</string>
   </void>
   <void method="put">
+   <string>.addTransducersForm.halfWaveLengthText</string>
+   <string>19</string>
+  </void>
+  <void method="put">
    <string>.transControlPanel.pushPullModeCheck</string>
    <string>0</string>
   </void>
@@ -259,6 +264,10 @@
   <void method="put">
    <string>.pointsPanel.groundLineCheck</string>
    <string>0</string>
+  </void>
+  <void method="put">
+   <string>.addTransducersForm.spaceText1</string>
+   <string>0.01</string>
   </void>
   <void method="put">
    <string>.miscPanel.maskMaskCheck</string>
@@ -330,7 +339,7 @@
   </void>
   <void method="put">
    <string>.transducersPanel.frText</string>
-   <string>0</string>
+   <string>2000.0000</string>
   </void>
   <void method="put">
    <string>.transControlPanel.deviceCombo</string>
@@ -338,7 +347,7 @@
   </void>
   <void method="put">
    <string>.ryText</string>
-   <string>0.0000</string>
+   <string>45.0000</string>
   </void>
   <void method="put">
    <string>.movePanel.autoSendCheck</string>
@@ -354,7 +363,7 @@
   </void>
   <void method="put">
    <string>.transducersPanel.powerText</string>
-   <string>0</string>
+   <string>2.4000</string>
   </void>
   <void method="put">
    <string>.movePanel.useAlgCheck</string>
@@ -374,7 +383,7 @@
   </void>
   <void method="put">
    <string>.rzText</string>
-   <string>0.0000</string>
+   <string>45.0000</string>
   </void>
   <void method="put">
    <string>.animPanel.waitText</string>
@@ -409,6 +418,10 @@
    <string>1</string>
   </void>
   <void method="put">
+   <string>.addTransducersForm.heightText1</string>
+   <string>0</string>
+  </void>
+  <void method="put">
    <string>.algForm.maxGLaplacian</string>
    <string>0</string>
   </void>
@@ -418,11 +431,11 @@
   </void>
   <void method="put">
    <string>.yText</string>
-   <string>0.0230</string>
+   <string>0.172</string>
   </void>
   <void method="put">
    <string>.szText</string>
-   <string>0.0500</string>
+   <string>0.0100</string>
   </void>
   <void method="put">
    <string>.holoPatternsForm.onlySelectionCheck</string>
@@ -434,11 +447,19 @@
   </void>
   <void method="put">
    <string>.rtSlicePanel.colAmpMaxText</string>
-   <string>500</string>
+   <string>1000</string>
+  </void>
+  <void method="put">
+   <string>.addTransducersForm.ringCheck</string>
+   <string>1</string>
   </void>
   <void method="put">
    <string>.miscPanel.ampDiscText</string>
    <string>10</string>
+  </void>
+  <void method="put">
+   <string>.addTransducersForm.ringAngleText</string>
+   <string>45</string>
   </void>
   <void method="put">
    <string>.miscPanel.colorText</string>
@@ -482,7 +503,7 @@
   </void>
   <void method="put">
    <string>.sxText</string>
-   <string>0.0500</string>
+   <string>0.0100</string>
   </void>
   <void method="put">
    <string>.trapsPanel.pressureAText</string>
@@ -498,7 +519,7 @@
   </void>
   <void method="put">
    <string>.addTransducersForm.spaceText</string>
-   <string>0.01</string>
+   <string>76.5</string>
   </void>
   <void method="put">
    <string>.addTransducersForm.freqText</string>
@@ -522,7 +543,7 @@
   </void>
   <void method="put">
    <string>.addTransducersForm.gridCheck</string>
-   <string>1</string>
+   <string>0</string>
   </void>
   <void method="put">
    <string>.rtSlicePanel.phaseCheck</string>
@@ -586,7 +607,7 @@
   </void>
   <void method="put">
    <string>.rxText</string>
-   <string>0.0000</string>
+   <string>180.0000</string>
   </void>
   <void method="put">
    <string>.addTransducersForm.radialCheck</string>
